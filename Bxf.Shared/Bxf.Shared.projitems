@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c66cee61-6a05-4742-8cb0-fafa94c26eec</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Bxf.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\NotConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\VisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IShell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IViewFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shell.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\ExecuteEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\TriggerAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)BxfKey.snk" />
+  </ItemGroup>
+</Project>

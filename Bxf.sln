@@ -1,12 +1,21 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bxf.Wpf", "Bxf.Wpf\Bxf.Wpf.csproj", "{CC1EF2C8-7D92-41A0-A89F-4B897A1240D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bxf.Silverlight", "Bxf.Silverlight\Bxf.Silverlight.csproj", "{97AEC097-3185-404C-B812-A17FE017FDDB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bxf.Wp", "Bxf.Wp\Bxf.Wp.csproj", "{E924B802-BBBF-446A-A315-12455619EF99}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Bxf.Shared", "Bxf.Shared\Bxf.Shared.shproj", "{C66CEE61-6A05-4742-8CB0-FAFA94C26EEC}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Bxf.Shared\Bxf.Shared.projitems*{cc1ef2c8-7d92-41a0-a89f-4b897a1240d6}*SharedItemsImports = 4
+		Bxf.Shared\Bxf.Shared.projitems*{e924b802-bbbf-446a-a315-12455619ef99}*SharedItemsImports = 4
+		Bxf.Shared\Bxf.Shared.projitems*{c66cee61-6a05-4742-8cb0-fafa94c26eec}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM

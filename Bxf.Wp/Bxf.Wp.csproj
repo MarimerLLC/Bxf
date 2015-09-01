@@ -118,51 +118,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Bxf.Silverlight\Converters\NotConverter.cs">
-      <Link>Converters\NotConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\Converters\VisibilityConverter.cs">
-      <Link>Converters\VisibilityConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\IPresenter.cs">
-      <Link>IPresenter.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\IShell.cs">
-      <Link>IShell.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\IView.cs">
-      <Link>IView.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\IViewFactory.cs">
-      <Link>IViewFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\ModelManager.cs">
-      <Link>ModelManager.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\Shell.cs">
-      <Link>Shell.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\Status.cs">
-      <Link>Status.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\View.cs">
-      <Link>View.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\ViewFactory.cs">
-      <Link>ViewFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\Xaml\ExecuteEventArgs.cs">
-      <Link>Xaml\ExecuteEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Bxf.Silverlight\Xaml\TriggerAction.cs">
-      <Link>Xaml\TriggerAction.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Bxf.Silverlight\BxfKey.snk">
-      <Link>BxfKey.snk</Link>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -176,6 +132,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <Import Project="..\Bxf.Shared\Bxf.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <ProjectExtensions />
