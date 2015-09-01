@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>BXF</id>
+    <version>1.0.0.0</version>
+    <authors>Rockford Lhotka</authors>
+    <licenseUrl>http://bxf.codeplex.com/license</licenseUrl>
+    <projectUrl>http://bxf.codeplex.com/</projectUrl>
+    <!-- <iconUrl>http://bxf.codeplex.com</iconUrl> -->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>
+Basic Xaml Framework is a simple, streamlined set of UI components designed to demonstrate the minimum framework functionality required to make MVVM work well while leveraging the Visual Studio 2010 XAML designer ("Cider"). Bxf works with Silverlight, WPF and WP7.
+
+Bxf was used in some Microsoft Tech Ed demos, available at: http://www.lhotka.net/Article.aspx?id=389bb59d-2760-4309-aee2-f55a976ef100
+  
+Bxf is discussed as part of this video: http://www.lhotka.net/files/MvvmIntro.wmv
+    </description>
+    <summary>
+Basic Xaml Framework is a simple, streamlined set of UI components designed to demonstrate the minimum framework functionality required to make MVVM work well while leveraging the Visual Studio 2010 XAML designer ("Cider"). Bxf works with Silverlight, WPF and WP7.
+    </summary>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <!-- .NET 4.0 Client -->
+    <file src="..\..\Bin\Release\DotNet\*" target="lib\NET4.0" />
+    <!-- Silverlight 4.0 Client -->
+    <file src="..\..\Bin\Release\Silverlight\*" target="lib\SL4.0" />
+    <!-- Windows Phone 7 Client -->
+    <file src="..\..\Bin\Release\Wp\*" target="lib\sl3-WP" />
+  </files>
+</package>

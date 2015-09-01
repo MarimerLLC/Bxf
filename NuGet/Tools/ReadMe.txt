@@ -1,0 +1,1 @@
+This is the NuGet v1.2 "NuGet.exe Commandline" download.
