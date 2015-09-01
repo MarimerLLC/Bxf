@@ -10,8 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bxf.Wp", "Bxf.Wp\Bxf.Wp.csp
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Bxf.Shared", "Bxf.Shared\Bxf.Shared.shproj", "{C66CEE61-6A05-4742-8CB0-FAFA94C26EEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bxf.Wpf.4.6", "Bxf.Wpf.4.6\Bxf.Wpf.4.6.csproj", "{6B420836-E229-4471-9160-44CCB891CA16}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Bxf.Shared\Bxf.Shared.projitems*{6b420836-e229-4471-9160-44ccb891ca16}*SharedItemsImports = 4
 		Bxf.Shared\Bxf.Shared.projitems*{cc1ef2c8-7d92-41a0-a89f-4b897a1240d6}*SharedItemsImports = 4
 		Bxf.Shared\Bxf.Shared.projitems*{e924b802-bbbf-446a-a315-12455619ef99}*SharedItemsImports = 4
 		Bxf.Shared\Bxf.Shared.projitems*{c66cee61-6a05-4742-8cb0-fafa94c26eec}*SharedItemsImports = 13
@@ -53,6 +56,18 @@ Global
 		{E924B802-BBBF-446A-A315-12455619EF99}.Release|ARM.Build.0 = Release|ARM
 		{E924B802-BBBF-446A-A315-12455619EF99}.Release|x86.ActiveCfg = Release|x86
 		{E924B802-BBBF-446A-A315-12455619EF99}.Release|x86.Build.0 = Release|x86
+		{6B420836-E229-4471-9160-44CCB891CA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Debug|x86.Build.0 = Debug|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Release|ARM.Build.0 = Release|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B420836-E229-4471-9160-44CCB891CA16}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

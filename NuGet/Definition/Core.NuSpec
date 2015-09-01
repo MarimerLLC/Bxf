@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>BXF</id>
-    <version>1.0.0.0</version>
+    <version>1.2.0.0</version>
     <authors>Rockford Lhotka</authors>
     <licenseUrl>http://bxf.codeplex.com/license</licenseUrl>
     <projectUrl>http://bxf.codeplex.com/</projectUrl>
@@ -21,8 +21,10 @@ Basic Xaml Framework is a simple, streamlined set of UI components designed to d
     <language>en-US</language>
   </metadata>
   <files>
+    <!-- .NET 4.6 Client -->
+    <file src="..\..\Bin\Release\DotNet46\*" target="lib\net46" />
     <!-- .NET 4.0 Client -->
-    <file src="..\..\Bin\Release\DotNet\*" target="lib\NET4.0" />
+    <file src="..\..\Bin\Release\DotNet\*" target="lib\net40" />
     <!-- Silverlight 4.0 Client -->
     <file src="..\..\Bin\Release\Silverlight\*" target="lib\SL4.0" />
     <!-- Windows Phone 7 Client -->
