@@ -16,6 +16,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)IView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IViewFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModelManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PortedAttributes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Reflection\TypeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shell.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View.cs" />

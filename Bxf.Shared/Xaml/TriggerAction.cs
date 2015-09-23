@@ -6,12 +6,16 @@
 // <summary>Control used to invoke a method on the DataContext</summary>
 //-----------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel;
+#if WINDOWS_UWP
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
+using Bxf.Reflection;
+#else
 using System.Windows.Controls;
 using System.Windows;
-using System.ComponentModel;
+using System.Windows.Data;
+#endif
 
 namespace Bxf.Xaml
 {
@@ -26,7 +30,7 @@ namespace Bxf.Xaml
     /// </summary>
     public TriggerAction()
     {
-      Visibility = System.Windows.Visibility.Collapsed;
+      Visibility = Visibility.Collapsed;
       Height = 20;
       Width = 20;
     }
@@ -37,7 +41,7 @@ namespace Bxf.Xaml
     private void CallMethod(object sender, EventArgs e)
     {
       object target = this.DataContext;
-      var cvs = target as System.Windows.Data.CollectionViewSource;
+      var cvs = target as CollectionViewSource;
       if (cvs != null && cvs.View != null)
       {
         target = cvs.View.CurrentItem;
@@ -104,9 +108,12 @@ namespace Bxf.Xaml
               var p1Type = p[1].ParameterType;
               if (typeof(EventArgs).IsAssignableFrom(p1Type))
               {
-                var del = Delegate.CreateDelegate(eventRef.EventHandlerType,
-                  this,
-                  this.GetType().GetMethod("CallMethod", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic));
+                var handler = this.GetType().GetMethod("CallMethod", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+#if WINDOWS_UWP
+                var del = handler.CreateDelegate(eventRef.EventHandlerType, this);
+#else
+                var del = Delegate.CreateDelegate(eventRef.EventHandlerType, this, handler);
+#endif
                 eventRef.RemoveEventHandler(oldTarget, del);
               }
               else
@@ -131,9 +138,12 @@ namespace Bxf.Xaml
               var p1Type = p[1].ParameterType;
               if (typeof(EventArgs).IsAssignableFrom(p1Type))
               {
-                var del = Delegate.CreateDelegate(eventRef.EventHandlerType,
-                  this,
-                  this.GetType().GetMethod("CallMethod", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic));
+                var handler = this.GetType().GetMethod("CallMethod", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+#if WINDOWS_UWP
+                var del = handler.CreateDelegate(eventRef.EventHandlerType, this);
+#else
+                var del = Delegate.CreateDelegate(eventRef.EventHandlerType, this, handler);
+#endif
                 eventRef.AddEventHandler(newTarget, del);
               }
               else
@@ -148,16 +158,21 @@ namespace Bxf.Xaml
       }
     }
 
-    #region Properties
+#region Properties
 
     /// <summary>
     /// Gets or sets the target UI control.
     /// </summary>
     public static readonly DependencyProperty TargetControlProperty =
       DependencyProperty.Register("TargetControl", typeof(FrameworkElement),
-      typeof(TriggerAction), new PropertyMetadata((o, e) =>
-        {
-          var ta = (TriggerAction)o;
+      typeof(TriggerAction),
+#if WINDOWS_UWP
+      new PropertyMetadata(null, (o, e) =>
+#else
+      new PropertyMetadata((o, e) =>
+#endif
+      {
+        var ta = (TriggerAction)o;
           ta.HookEvent(
             (FrameworkElement)e.OldValue, ta.TriggerEvent, (FrameworkElement)e.NewValue, ta.TriggerEvent);
         }));
@@ -249,9 +264,9 @@ namespace Bxf.Xaml
       set { SetValue(RebindParameterDynamicallyProperty, value); }
     }
 
-    #endregion
+#endregion
 
-    #region GetMethodParameter
+#region GetMethodParameter
 
     private object GetMethodParameter()
     {
@@ -264,15 +279,18 @@ namespace Bxf.Xaml
       return MethodParameter;
     }
 
-    private static System.Windows.Data.Binding CopyBinding(System.Windows.Data.Binding oldBinding)
+    private static Binding CopyBinding(Binding oldBinding)
     {
-      var result = new System.Windows.Data.Binding();
+      var result = new Binding();
+#if !WINDOWS_UWP
       result.BindsDirectlyToSource = oldBinding.BindsDirectlyToSource;
-      result.Converter = oldBinding.Converter;
       result.ConverterCulture = oldBinding.ConverterCulture;
+      result.NotifyOnValidationError = oldBinding.NotifyOnValidationError;
+      result.ValidatesOnExceptions = oldBinding.ValidatesOnExceptions;
+#endif
+      result.Converter = oldBinding.Converter;
       result.ConverterParameter = oldBinding.ConverterParameter;
       result.Mode = oldBinding.Mode;
-      result.NotifyOnValidationError = oldBinding.NotifyOnValidationError;
       result.Path = oldBinding.Path;
       if (oldBinding.ElementName != null)
         result.ElementName = oldBinding.ElementName;
@@ -281,10 +299,9 @@ namespace Bxf.Xaml
       else
         result.Source = oldBinding.Source;
       result.UpdateSourceTrigger = oldBinding.UpdateSourceTrigger;
-      result.ValidatesOnExceptions = oldBinding.ValidatesOnExceptions;
       return result;
     }
 
-    #endregion
+#endregion
   }
 }

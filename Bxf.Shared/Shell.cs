@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+#if WINDOWS_UWP
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
+#else
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.ComponentModel;
+#endif
 
 namespace Bxf
 {
@@ -13,7 +17,7 @@ namespace Bxf
   /// </summary>
   public class Shell : IShell, IPresenter
   {
-    #region Instance property
+#region Instance property
 
     private static IShell _presenter = new Shell();
 
@@ -27,9 +31,9 @@ namespace Bxf
       set { _presenter = value; }
     }
 
-    #endregion
+#endregion
 
-    #region ViewFactory
+#region ViewFactory
 
     private IViewFactory _viewFactory = new ViewFactory();
 
@@ -43,9 +47,9 @@ namespace Bxf
       set { _viewFactory = value; }
     }
 
-    #endregion
+#endregion
 
-    #region IPresenter
+#region IPresenter
 
     /// <summary>
     /// Event raised when a view is to be displayed.
@@ -65,9 +69,9 @@ namespace Bxf
     /// </summary>
     public event Action OnNewUser;
 
-    #endregion
+#endregion
 
-    #region IShell
+#region IShell
 
     /// <summary>
     /// Initializes the binding resource and raises
@@ -129,7 +133,7 @@ namespace Bxf
           if (resource == null)
             throw new NotSupportedException("Binding resource key not found in view resources");
 
-          var viewsource = resource as System.Windows.Data.CollectionViewSource;
+          var viewsource = resource as CollectionViewSource;
           if (viewsource != null)
           {
             // make sure model is a list (or wrapped in one)
@@ -185,6 +189,6 @@ namespace Bxf
         OnNewUser();
     }
 
-    #endregion
+#endregion
   }
 }

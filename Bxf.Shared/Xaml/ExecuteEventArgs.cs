@@ -6,7 +6,11 @@
 // <summary>Arguments passed to a method invoked</summary>
 //-----------------------------------------------------------------------
 using System;
+#if WINDOWS_UWP
+using Windows.UI.Xaml;
+#else
 using System.Windows;
+#endif
 
 namespace Bxf.Xaml
 {
