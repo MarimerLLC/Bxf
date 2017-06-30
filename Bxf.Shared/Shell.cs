@@ -3,7 +3,7 @@ using System.Collections.Generic;
 #if WINDOWS_UWP
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
-#else
+#elif !XAMARIN
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.ComponentModel;
@@ -125,8 +125,13 @@ namespace Bxf
       {
         if (string.IsNullOrEmpty(view.BindingResourceKey))
         {
+#if XAMARIN
+          form.BindingContext = view.Model;
+#else
           form.DataContext = view.Model;
+#endif
         }
+#if !XAMARIN
         else
         {
           var resource = form.Resources[view.BindingResourceKey];
@@ -155,6 +160,7 @@ namespace Bxf
             }
           }
         }
+#endif
       }
     }
 

@@ -1,4 +1,5 @@
-﻿#if WINDOWS_UWP
+﻿#if !XAMARIN
+#if WINDOWS_UWP
 using Windows.UI.Xaml;
 #else
 using System.Windows;
@@ -28,3 +29,4 @@ namespace Bxf
     }
   }
 }
+#endif

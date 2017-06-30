@@ -1,4 +1,5 @@
-﻿//-----------------------------------------------------------------------
+﻿#if !XAMARIN
+//-----------------------------------------------------------------------
 // <copyright file="ExecuteEventArgs.cs" company="Marimer LLC">
 //     Copyright (c) Marimer LLC. All rights reserved.
 //     Website: http://www.lhotka.net/cslanet/
@@ -37,3 +38,4 @@ namespace Bxf.Xaml
     public object TriggerParameter { get; set; }
   }
 }
+#endif
