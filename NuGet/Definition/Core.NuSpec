@@ -21,5 +21,7 @@ Basic Xaml Framework is a simple, streamlined set of UI components designed to d
     <file src="..\..\Bin\Release\DotNet46\*" target="lib\net46" />
     <!-- .NET 4.0 Client -->
     <file src="..\..\Bin\Release\DotNet\*" target="lib\net40" />
+    <!-- PCL Profile111 -->
+    <file src="..\..\Bin\Release\PCL_111\Bxf.*" target="lib\portable-net45+win8+wpa81" />
   </files>
 </package>
