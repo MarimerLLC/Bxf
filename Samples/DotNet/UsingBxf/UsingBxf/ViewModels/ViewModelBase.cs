@@ -12,9 +12,7 @@ namespace UsingBxf.ViewModels
 
     protected virtual void OnPropertyChanged(string propertyName)
     {
-      var temp = PropertyChanged;
-      if (temp != null)
-        temp(this, new PropertyChangedEventArgs(propertyName));
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
   }
 }
