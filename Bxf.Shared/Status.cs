@@ -1,5 +1,7 @@
 ﻿#if WINDOWS_UWP
 using Windows.UI.Xaml;
+#elif XAMARIN
+using Xamarin.Forms;
 #else
 using System.Windows;
 #endif
@@ -48,6 +50,10 @@ namespace Bxf
         /// This is optional.
         /// </remarks>
         /// <value>The visual element.</value>
+#if XAMARIN
+        public VisualElement Visual { get; set; }
+#else
         public FrameworkElement Visual { get; set; }
+#endif
     }
 }

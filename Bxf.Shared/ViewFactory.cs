@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 #if WINDOWS_UWP
 using Windows.UI.Xaml.Controls;
+#elif XAMARIN
+using Xamarin.Forms;
 #else
 using System.Windows.Controls;
 #endif
@@ -32,7 +34,11 @@ namespace Bxf
     /// Creates an instance of the view.
     /// </summary>
     /// <param name="viewName">Name of the view.</param>
+#if XAMARIN
+    protected virtual VisualElement CreateUserControl(string viewName)
+#else
     protected virtual UserControl CreateUserControl(string viewName)
+#endif
     {
       if (string.IsNullOrEmpty(viewName))
         return null;
@@ -40,21 +46,20 @@ namespace Bxf
       var t = GetType(viewName);
       if (t == null)
         throw new ArgumentException(string.Format("viewName ({0})", viewName));
+#if XAMARIN
+      return (VisualElement)Activator.CreateInstance(t);
+#else
       return (UserControl)Activator.CreateInstance(t);
+#endif
     }
 
     private static Type GetType(string typeName)
     {
-      string fullTypeName;
-#if SILVERLIGHT
-      if (typeName.Contains("Version="))
-        fullTypeName = typeName;
-      else
-        fullTypeName = typeName + ", Version=..., Culture=neutral, PublicKeyToken=null";
+#if XAMARIN
+      return Type.GetType(typeName, true);
 #else
-        fullTypeName = typeName;
+      return Type.GetType(typeName, true, false);
 #endif
-      return Type.GetType(fullTypeName, true, false);
     }
   }
 }

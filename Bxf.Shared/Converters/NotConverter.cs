@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !XAMARIN
+using System;
 #if WINDOWS_UWP
 using Windows.UI.Xaml.Data;
 #else
@@ -60,3 +61,4 @@ namespace Bxf.Converters
     }
   }
 }
+#endif

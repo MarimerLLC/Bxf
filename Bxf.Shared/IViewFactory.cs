@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-#if WINDOWS_UWP
-using Windows.UI.Xaml.Controls;
-#else
-using System.Windows.Controls;
-#endif
-
 namespace Bxf
 {
   /// <summary>

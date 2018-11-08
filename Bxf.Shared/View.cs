@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 #if WINDOWS_UWP
 using Windows.UI.Xaml.Controls;
+#elif XAMARIN
+using Xamarin.Forms;
 #else
 using System.Windows.Controls;
 #endif
@@ -24,7 +26,11 @@ namespace Bxf
     /// <param name="view">Instance of the view.</param>
     /// <param name="bindingResourceKey">Name of the binding resource.</param>
     /// <param name="model">Instance of the model or viewmodel for the view.</param>
+#if XAMARIN
+    public View(string viewName, VisualElement view, string bindingResourceKey, object model)
+#else
     public View(string viewName, UserControl view, string bindingResourceKey, object model)
+#endif
     {
       ViewInstance = view;
       ViewName = viewName;
@@ -35,7 +41,11 @@ namespace Bxf
     /// <summary>
     /// Gets the instance of the view.
     /// </summary>
+#if XAMARIN
+    public VisualElement ViewInstance { get; private set; }
+#else
     public UserControl ViewInstance { get; private set; }
+#endif
     /// <summary>
     /// Gets the name of the view used to create
     /// the view instance by the view factory.
