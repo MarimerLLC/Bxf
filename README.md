@@ -1,5 +1,7 @@
 Basic Xaml Framework
 ====================
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=MarimerLLC/Bxf)](https://dependabot.com)
+
 Basic Xaml Framework (Bxf) is a simple, streamlined set of UI components designed to demonstrate the minimum framework functionality required to make MVVM work well while leveraging the Visual Studio 2010 XAML designer ("Cider"). Bxf works with Silverlight, WPF and WP7.
 
 Bxf was transferred from [CodePlex](https://bxf.codeplex.com) to GitHub September 1, 2015.
